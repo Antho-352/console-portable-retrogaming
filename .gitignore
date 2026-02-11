@@ -1,0 +1,8 @@
+# RetroXGames
+
+images/
+*.log
+.DS_Store
+node_modules/
+dist/
+.env
