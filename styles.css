@@ -325,6 +325,12 @@ h4,
     /* Modern tight spacing */
 }
 
+h2 {
+    padding-top: 40px;
+    /* User request: air out sections */
+    margin-bottom: 32px;
+}
+
 /* === BUTTONS & CTAs === */
 .cta-primary,
 .cta-button {
@@ -360,13 +366,14 @@ h4,
 }
 
 .cta-button-secondary {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.1);
     color: var(--text-white);
-    border: 1px solid var(--border-subtle);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-weight: 600;
 }
 
 .cta-button-secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.2);
     border-color: var(--text-white);
 }
 
@@ -399,41 +406,42 @@ h4,
 /* === BADGES === */
 .product-badge {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    padding: 6px 16px;
+    top: 16px;
+    right: 16px;
+    background: rgba(79, 70, 229, 0.9);
+    /* 90% opacity (User request) */
+    backdrop-filter: blur(12px);
+    padding: 6px 12px;
     border-radius: var(--radius-badge);
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     z-index: 10;
-    backdrop-filter: blur(8px);
-}
-
-.product-badge,
-.product-badge.gold,
-.product-badge.silver,
-.product-badge.premium {
-    /* Unified SaaS Style: Blue/Violet Glares */
-    background: rgba(79, 70, 229, 0.2);
-    color: #A5B4FC;
-    /* Light Indigo */
-    border: 1px solid rgba(79, 70, 229, 0.3);
-}
-
-.product-badge.premium {
-    background: var(--primary-gradient);
     color: white;
-    border: none;
-    box-shadow: 0 2px 10px rgba(124, 58, 237, 0.4);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.product-badge.bronze {
-    background: rgba(255, 255, 255, 0.05);
-    color: var(--text-gray);
-    border: 1px solid var(--border-dark);
+.product-badge.gold {
+    background: rgba(234, 179, 8, 0.9);
+    /* Yellow-500 optimized */
+    color: black;
 }
+
+.product-badge.silver {
+    background: rgba(148, 163, 184, 0.9);
+    /* Slate-400 */
+    color: black;
+}
+
+.product-badge.premium {
+    background: rgba(124, 58, 237, 0.9);
+    /* Violet */
+    color: white;
+}
+
+
 
 /* === IMAGES === */
 .product-image {
