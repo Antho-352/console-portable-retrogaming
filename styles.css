@@ -394,10 +394,6 @@ section:nth-child(even) {
     color: white;
 }
 
-.product-badge.nintendo-badge {
-    background: #E60012;
-    color: white;
-}
 
 .product-image {
     width: 100%;
@@ -609,7 +605,7 @@ section:nth-child(even) {
 }
 
 .table-cta {
-    background: var(--primary-orange);
+    background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-cyan) 100%);
     color: white;
     padding: 8px 16px;
     border-radius: 6px;
@@ -620,8 +616,9 @@ section:nth-child(even) {
     transition: all 0.3s ease;
 }
 
+
 .table-cta:hover {
-    background: #E55A28;
+    background: linear-gradient(135deg, #7C3AED 0%, #0891B2 100%);
     transform: scale(1.05);
 }
 
