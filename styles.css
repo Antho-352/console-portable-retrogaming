@@ -568,23 +568,29 @@ section:nth-child(even) {
 .comparison-table {
     width: 100%;
     border-collapse: collapse;
-    background: white;
+    background: var(--bg-card);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-dark);
 }
 
 .comparison-table thead {
-    background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-cyan) 100%);
-    color: white;
+    background: var(--bg-darker);
+    color: var(--text-white);
+    border-bottom: 2px solid var(--border-accent);
 }
 
 .comparison-table th {
     padding: 16px;
     text-align: left;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
     user-select: none;
+    color: var(--primary-purple);
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .comparison-table th:hover {
@@ -594,6 +600,8 @@ section:nth-child(even) {
 .comparison-table td {
     padding: 16px;
     border-bottom: 1px solid var(--border-dark);
+    color: var(--text-light);
+    font-weight: 500;
 }
 
 .comparison-table tbody tr:hover {
@@ -704,6 +712,7 @@ section:nth-child(even) {
     justify-content: space-between;
     align-items: center;
     transition: background 0.3s ease;
+    color: var(--text-light);
 }
 
 .faq-question:hover {
