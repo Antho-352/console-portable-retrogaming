@@ -11,25 +11,37 @@
 }
 
 :root {
-    /* Colors */
-    --primary-blue: #2563EB;
-    --primary-orange: #FF6B35;
-    --primary-green: #10B981;
-    --accent-yellow: #FCD34D;
-    --bg-white: #FFFFFF;
-    --bg-light: #F9FAFB;
-    --text-dark: #1F2937;
-    --text-gray: #6B7280;
-    --border-gray: #E5E7EB;
-    
+    /* Dark Theme Colors */
+    --primary-purple: #8B5CF6;
+    --primary-cyan: #06B6D4;
+    --primary-orange: #F97316;
+    --accent-gold: #FCD34D;
+    --accent-neon: #10B981;
+
+    /* Backgrounds */
+    --bg-dark: #0F0F0F;
+    --bg-darker: #1A1A1A;
+    --bg-card: #1F1F1F;
+    --bg-card-hover: #2A2A2A;
+
+    /* Text */
+    --text-white: #FFFFFF;
+    --text-light: #E5E7EB;
+    --text-gray: #9CA3AF;
+    --text-muted: #6B7280;
+
+    /* Borders */
+    --border-dark: #2A2A2A;
+    --border-accent: #3F3F46;
+
     /* Typography */
     --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-    
+
     /* Spacing */
     --container-max: 1200px;
     --section-padding: 80px;
     --section-padding-mobile: 40px;
-    
+
     /* Shadows */
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -40,8 +52,8 @@ body {
     font-family: var(--font-family);
     font-size: 18px;
     line-height: 1.7;
-    color: var(--text-dark);
-    background: var(--bg-white);
+    color: var(--text-light);
+    background: var(--bg-dark);
 }
 
 .container {
@@ -63,7 +75,7 @@ h2 {
     font-weight: 700;
     line-height: 1.3;
     margin-bottom: 32px;
-    color: var(--text-dark);
+    color: var(--text-white);
 }
 
 h3 {
@@ -86,10 +98,30 @@ p {
 
 /* === HERO SECTION === */
 .hero {
-    background: linear-gradient(135deg, var(--primary-blue) 0%, #1E40AF 100%);
+    background: linear-gradient(135deg, #1A0B2E 0%, #16213E 50%, #0F3460 100%);
     color: white;
     padding: 120px 0 80px;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.15) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
 }
 
 .hero h1 {
@@ -139,27 +171,27 @@ p {
 
 .cta-primary,
 .cta-button {
-    background: var(--primary-orange);
+    background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-cyan) 100%);
     color: white;
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
 }
 
 .cta-primary:hover,
 .cta-button:hover {
-    background: #E55A28;
+    background: linear-gradient(135deg, #7C3AED 0%, #0891B2 100%);
     transform: scale(1.05);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 8px 30px rgba(139, 92, 246, 0.6);
 }
 
 .cta-button-secondary {
     background: transparent;
-    color: var(--primary-blue);
-    border: 2px solid var(--primary-blue);
+    color: var(--primary-cyan);
+    border: 2px solid var(--primary-cyan);
 }
 
 .cta-button-secondary:hover {
-    background: var(--primary-blue);
-    color: white;
+    background: var(--primary-cyan);
+    color: var(--bg-dark);
 }
 
 .cta-button.large {
@@ -173,9 +205,10 @@ p {
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(15, 15, 15, 0.95);
     backdrop-filter: blur(10px);
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 2px 20px rgba(139, 92, 246, 0.2);
+    border-bottom: 1px solid var(--border-dark);
     z-index: 1000;
     transform: translateY(-100%);
     transition: transform 0.3s ease;
@@ -199,7 +232,7 @@ p {
 }
 
 .nav-links a {
-    color: var(--text-dark);
+    color: var(--text-light);
     text-decoration: none;
     font-weight: 600;
     font-size: 16px;
@@ -208,7 +241,7 @@ p {
 }
 
 .nav-links a:hover {
-    color: var(--primary-blue);
+    color: var(--primary-purple);
 }
 
 .nav-links a::after {
@@ -218,7 +251,7 @@ p {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--primary-blue);
+    background: linear-gradient(90deg, var(--primary-purple), var(--primary-cyan));
     transition: width 0.3s ease;
 }
 
@@ -282,7 +315,7 @@ section {
 }
 
 section:nth-child(even) {
-    background: var(--bg-light);
+    background: var(--bg-darker);
 }
 
 .section-intro {
@@ -310,23 +343,25 @@ section:nth-child(even) {
 }
 
 .product-card {
-    background: white;
-    border: 1px solid var(--border-gray);
+    background: var(--bg-card);
+    border: 1px solid var(--border-dark);
     border-radius: 12px;
     padding: 24px;
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
     position: relative;
 }
 
 .product-card:hover {
-    box-shadow: var(--shadow-md);
-    border-color: var(--primary-blue);
+    box-shadow: 0 8px 24px rgba(139, 92, 246, 0.3);
+    border-color: var(--primary-purple);
     transform: translateY(-4px);
+    background: var(--bg-card-hover);
 }
 
 .product-card.featured {
-    border: 2px solid var(--accent-yellow);
+    border: 2px solid var(--accent-gold);
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(6, 182, 212, 0.05) 100%);
 }
 
 .product-badge {
@@ -417,10 +452,11 @@ section:nth-child(even) {
 
 /* === SPOTLIGHT SECTION === */
 .product-spotlight {
-    background: linear-gradient(135deg, #F3F4F6 0%, #E5E7EB 100%);
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
     border-radius: 16px;
     padding: 48px;
     margin: 48px 0;
+    border: 1px solid var(--border-accent);
 }
 
 .spotlight-grid {
@@ -465,13 +501,14 @@ section:nth-child(even) {
 }
 
 .price-box {
-    background: white;
+    background: var(--bg-card);
     padding: 24px;
     border-radius: 8px;
     margin: 24px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border: 1px solid var(--border-accent);
 }
 
 .price-label {
@@ -482,7 +519,7 @@ section:nth-child(even) {
 .price-value {
     font-size: 36px;
     font-weight: 800;
-    color: var(--primary-blue);
+    color: var(--primary-cyan);
 }
 
 .cta-group {
@@ -498,9 +535,10 @@ section:nth-child(even) {
 .specs-table table {
     width: 100%;
     border-collapse: collapse;
-    background: white;
+    background: var(--bg-card);
     border-radius: 8px;
     overflow: hidden;
+    border: 1px solid var(--border-dark);
 }
 
 .specs-table tr {
@@ -518,7 +556,7 @@ section:nth-child(even) {
 
 .specs-table td:first-child {
     width: 30%;
-    background: var(--bg-light);
+    background: var(--bg-darker);
 }
 
 /* === COMPARISON TABLE === */
@@ -537,7 +575,7 @@ section:nth-child(even) {
 }
 
 .comparison-table thead {
-    background: var(--primary-blue);
+    background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-cyan) 100%);
     color: white;
 }
 
@@ -550,16 +588,16 @@ section:nth-child(even) {
 }
 
 .comparison-table th:hover {
-    background: #1E40AF;
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .comparison-table td {
     padding: 16px;
-    border-bottom: 1px solid var(--border-gray);
+    border-bottom: 1px solid var(--border-dark);
 }
 
 .comparison-table tbody tr:hover {
-    background: var(--bg-light);
+    background: var(--bg-card-hover);
 }
 
 .table-cta {
@@ -596,10 +634,10 @@ section:nth-child(even) {
 }
 
 .tier {
-    background: white;
+    background: var(--bg-card);
     padding: 24px;
     border-radius: 12px;
-    border-left: 4px solid var(--primary-blue);
+    border-left: 4px solid var(--primary-purple);
 }
 
 .guide-list {
@@ -617,7 +655,7 @@ section:nth-child(even) {
     content: '→';
     position: absolute;
     left: 0;
-    color: var(--primary-blue);
+    color: var(--primary-cyan);
     font-weight: 700;
 }
 
@@ -631,10 +669,11 @@ section:nth-child(even) {
 
 .criterion,
 .profile {
-    background: white;
+    background: var(--bg-card);
     padding: 24px;
     border-radius: 12px;
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-dark);
 }
 
 /* === FAQ SECTION === */
@@ -644,11 +683,12 @@ section:nth-child(even) {
 }
 
 .faq-item {
-    background: white;
+    background: var(--bg-card);
     border-radius: 8px;
     margin-bottom: 16px;
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     overflow: hidden;
+    border: 1px solid var(--border-dark);
 }
 
 .faq-question {
@@ -667,13 +707,13 @@ section:nth-child(even) {
 }
 
 .faq-question:hover {
-    background: var(--bg-light);
+    background: var(--bg-card-hover);
 }
 
 .faq-icon {
     font-size: 24px;
     font-weight: 700;
-    color: var(--primary-blue);
+    color: var(--primary-purple);
     transition: transform 0.3s ease;
 }
 
@@ -710,14 +750,15 @@ section:nth-child(even) {
     content: '•';
     position: absolute;
     left: 8px;
-    color: var(--primary-blue);
+    color: var(--primary-cyan);
 }
 
 /* === CONCLUSION SECTION === */
 .conclusion-section {
-    background: linear-gradient(135deg, #F3F4F6 0%, #E5E7EB 100%);
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
     padding: 80px 0;
     text-align: center;
+    border-top: 1px solid var(--border-accent);
 }
 
 .conclusion-text {
@@ -736,7 +777,7 @@ section:nth-child(even) {
 }
 
 .final-cta {
-    background: white;
+    background: var(--bg-card);
     padding: 32px 24px;
     border-radius: 12px;
     text-decoration: none;
@@ -744,7 +785,7 @@ section:nth-child(even) {
     flex-direction: column;
     align-items: center;
     gap: 12px;
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
     border: 2px solid transparent;
 }
@@ -755,15 +796,18 @@ section:nth-child(even) {
 }
 
 .final-cta.premium {
-    border-color: var(--accent-yellow);
+    border-color: var(--accent-gold);
+    background: linear-gradient(135deg, rgba(252, 211, 77, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
 }
 
 .final-cta.bestseller {
-    border-color: var(--primary-blue);
+    border-color: var(--primary-purple);
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
 }
 
 .final-cta.budget {
-    border-color: var(--primary-green);
+    border-color: var(--accent-neon);
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
 }
 
 .cta-label {
@@ -776,13 +820,13 @@ section:nth-child(even) {
 .cta-product {
     font-size: 20px;
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--text-white);
 }
 
 .cta-price {
     font-size: 28px;
     font-weight: 800;
-    color: var(--primary-blue);
+    color: var(--primary-cyan);
 }
 
 .reassurance-final {
@@ -796,15 +840,16 @@ section:nth-child(even) {
 .reassurance-item {
     font-size: 16px;
     font-weight: 600;
-    color: var(--primary-green);
+    color: var(--accent-neon);
 }
 
 /* === FOOTER === */
 .site-footer {
-    background: var(--text-dark);
-    color: white;
+    background: var(--bg-darker);
+    color: var(--text-light);
     padding: 40px 0;
     text-align: center;
+    border-top: 1px solid var(--border-dark);
 }
 
 .site-footer p {
@@ -822,23 +867,23 @@ section:nth-child(even) {
     h1 {
         font-size: 36px;
     }
-    
+
     h2 {
         font-size: 28px;
     }
-    
+
     .product-grid-3 {
         grid-template-columns: 1fr;
     }
-    
+
     .spotlight-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .final-cta-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .criteria-grid,
     .profile-recommendations {
         grid-template-columns: 1fr;
@@ -849,56 +894,56 @@ section:nth-child(even) {
     :root {
         --section-padding: 40px;
     }
-    
+
     body {
         font-size: 16px;
     }
-    
+
     h1 {
         font-size: 28px;
     }
-    
+
     h2 {
         font-size: 24px;
     }
-    
+
     h3 {
         font-size: 20px;
     }
-    
+
     .hero {
         padding: 80px 0 60px;
     }
-    
+
     .nav-links {
         display: none;
     }
-    
+
     .burger-menu {
         display: flex;
     }
-    
+
     .product-grid-2 {
         grid-template-columns: 1fr;
     }
-    
+
     .product-spotlight {
         padding: 24px;
     }
-    
+
     .cta-group {
         flex-direction: column;
     }
-    
+
     .comparison-table {
         font-size: 14px;
     }
-    
+
     .comparison-table th,
     .comparison-table td {
         padding: 8px;
     }
-    
+
     .reassurance-final {
         flex-direction: column;
         gap: 16px;
@@ -911,6 +956,7 @@ section:nth-child(even) {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
