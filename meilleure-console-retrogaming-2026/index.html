@@ -91,20 +91,23 @@
 
 <body>
     <!-- Sticky Navigation -->
-    <nav class="sticky-nav" id="sticky-nav">
+    <!-- Semantic Header -->
+    <header id="main-header">
         <div class="container nav-container">
-            <a href="../index.html" class="nav-logo">
+            <a href="../index.html" class="logo">
                 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                     <rect width="100" height="100" rx="20" fill="#22C55E" />
                     <path d="M30 50 L50 30 L70 50 L50 70 Z" fill="white" />
                 </svg>
                 <span>Console Portable Rétrogaming</span>
             </a>
-            <div class="nav-links">
+
+            <nav class="desktop-nav">
                 <a href="../index.html">🏠 Accueil</a>
                 <div class="dropdown">
                     <a href="../mini-console-retro/">🎮 Les consoles rétro ▾</a>
-                    <div class="dropdown-content"><a href="../meilleure-console-retrogaming-2026/">🏆 Top 3 Ultime 2026</a>
+                    <div class="dropdown-menu">
+                        <a href="../meilleure-console-retrogaming-2026/">🏆 Top 3 Ultime 2026</a>
                         <a href="../console-pacman/">🟡 Console Pacman</a>
                         <a href="../console-tetris-brick-game/">🧱 Console Tetris</a>
                         <a href="../jeux-galaga/">🚀 Jeux Galaga</a>
@@ -116,22 +119,26 @@
                 </div>
                 <a href="../actualites/">🗞️ Blog</a>
                 <a href="../index.html#guide">🎯 Guide d'achat</a>
-            </div>
-            <button class="burger-menu" id="burger-menu">
+            </nav>
+
+            <button class="menu-toggle" id="burger-menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
         </div>
-    </nav>
+    </header>
 
     <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu" id="mobile-menu">
+    <nav id="mobile-menu">
         <a href="../index.html">🏠 Accueil</a>
+        <a href="../meilleure-console-retrogaming-2026/">🏆 Top 3 Ultime 2026</a>
         <a href="../mini-console-retro/">📊 Comparatif Global</a>
         <a href="../actualites/">🗞️ Blog</a>
-        <a href="../index.html#guide">🎯 Guide d'achat</a>
-    </div>
+        <a href="../index.html#guide">🎯 Guide d'Achat</a>
+    </nav>
+
+
 
     <main class="article-content">
         <h1>Meilleure console rétrogaming 2026 : le top 3 ultime</h1>
@@ -252,7 +259,8 @@
             chercher une prise. <strong>Cette endurance change la vie en déplacement</strong>.</p>
 
         <p>La connexion Bluetooth permet de brancher des manettes sans aucune latence. L'expérience reste
-            <strong>parfaitement fluide et réactive</strong>.</p>
+            <strong>parfaitement fluide et réactive</strong>.
+        </p>
 
         <p>Branchez simplement la console en USB-C sur la télé. <strong>L'image s'affiche, c'est simple et
                 efficace.</strong></p>
@@ -369,7 +377,8 @@
                         ratio 4:3 des jeux anciens avec une densité exceptionnelle de 419 PPI. À l'inverse, la Retroid
                         Pocket 5 adopte un format horizontal classique avec un écran AMOLED de 5,5 pouces en 16:9.
                         <strong>Choisissez la première pour la fidélité nostalgique et la seconde pour le confort visuel
-                            moderne</strong>.</p>
+                            moderne</strong>.
+                    </p>
                 </div>
             </div>
 

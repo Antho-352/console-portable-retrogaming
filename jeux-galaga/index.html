@@ -158,18 +158,23 @@
 </head>
 
 <body>
-    <!-- Header/Nav -->
-    <nav class="sticky-nav" id="sticky-nav">
+        <!-- Semantic Header -->
+    <header id="main-header">
         <div class="container nav-container">
-            <a href="../index.html" class="nav-logo">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="20" fill="#22C55E"/><path d="M30 50 L50 30 L70 50 L50 70 Z" fill="white"/></svg>
+            <a href="../index.html" class="logo">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100" height="100" rx="20" fill="#22C55E" />
+                    <path d="M30 50 L50 30 L70 50 L50 70 Z" fill="white" />
+                </svg>
                 <span>Console Portable Rétrogaming</span>
             </a>
-            <div class="nav-links">
+            
+            <nav class="desktop-nav">
                 <a href="../index.html">🏠 Accueil</a>
                 <div class="dropdown">
                     <a href="../mini-console-retro/">🎮 Les consoles rétro ▾</a>
-                    <div class="dropdown-content"><a href="../meilleure-console-retrogaming-2026/">🏆 Top 3 Ultime 2026</a>
+                    <div class="dropdown-menu">
+                        <a href="../meilleure-console-retrogaming-2026/">🏆 Top 3 Ultime 2026</a>
                         <a href="../console-pacman/">🟡 Console Pacman</a>
                         <a href="../console-tetris-brick-game/">🧱 Console Tetris</a>
                         <a href="../jeux-galaga/">🚀 Jeux Galaga</a>
@@ -181,8 +186,23 @@
                 </div>
                 <a href="../actualites/">🗞️ Blog</a>
                 <a href="../index.html#guide">🎯 Guide d'achat</a>
-            </div>
+            </nav>
+
+            <button class="menu-toggle" id="burger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <nav id="mobile-menu">
+        <a href="../index.html">🏠 Accueil</a>
+        <a href="../meilleure-console-retrogaming-2026/">🏆 Top 3 Ultime 2026</a>
+        <a href="../mini-console-retro/">📊 Comparatif Global</a>
+        <a href="../actualites/">🗞️ Blog</a>
+        <a href="../index.html#guide">🎯 Guide d'Achat</a>
     </nav>
 
     <!-- Hero Section -->
