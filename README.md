@@ -244,7 +244,7 @@ Sitemap: https://retroxgames.fr/sitemap.xml
 | Game Watch Zelda | 59,80€ | B08GYPMKR6 | ✅ |
 | My Arcade Pac-Man | 43,90€ | B07GLF2JDK | ✅ |
 | Mini Arcade Retro | 32,99€ | TBD | ⚠️ Lien à ajouter |
-| Console 100 Jeux | ~25€ | B0F4JZ9WBF | ✅ |
+| Console 100 Jeux | 46,85€ | B0F4JZ9WBF | ✅ |
 
 **Note** : 2 produits (B0CP46GWQ9 et B0GG9ZFPL6) n'ont pas pu être récupérés. Vous pouvez les ajouter manuellement si nécessaire.
 
