@@ -661,6 +661,116 @@ th {
     display: block;
 }
 
+/* === GUIDE D'ACHAT === */
+.guide-section {
+    padding: 80px 0;
+    background: var(--bg-dark);
+}
+
+.guide-section h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 36px;
+}
+
+.guide-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.guide-block {
+    margin-bottom: 50px;
+    background: var(--bg-card);
+    padding: 50px;
+    border-radius: 24px;
+    border: 1px solid var(--border-dark);
+    box-shadow: var(--shadow-soft);
+}
+
+.guide-block h3 {
+    font-size: 24px;
+    color: var(--primary-violet);
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--border-dark);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.budget-tiers,
+.profile-recommendations {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.tier,
+.profile,
+.criterion {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.tier:hover,
+.profile:hover,
+.criterion:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--primary-violet);
+    transform: translateY(-5px);
+}
+
+.tier h4,
+.profile h4,
+.criterion h4 {
+    color: var(--text-white);
+    font-size: 18px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tier p,
+.profile p,
+.criterion p {
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.7;
+}
+
+.guide-list {
+    list-style: none;
+    display: grid;
+    gap: 20px;
+}
+
+.guide-list li {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-violet);
+}
+
+.criteria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+@media (max-width: 768px) {
+    .guide-block {
+        padding: 25px;
+    }
+
+    .budget-tiers,
+    .profile-recommendations,
+    .criteria-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* === FOOTER === */
 .site-footer {
     padding: 80px 0;
