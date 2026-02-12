@@ -5,9 +5,9 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     // === HEADER COMPACT AU SCROLL ===
-    const header = document.querySelector('header');
-
     window.addEventListener('scroll', function () {
+        const header = document.querySelector('header');
+
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
         } else {
@@ -21,12 +21,11 @@ document.addEventListener('DOMContentLoaded', function () {
             const href = this.getAttribute('href');
             if (href === '#') return;
 
-            // Only handle internal links
             if (href.startsWith('#')) {
                 const targetElement = document.querySelector(href);
                 if (targetElement) {
                     e.preventDefault();
-                    const offset = 80; // Account for sticky nav
+                    const offset = 80;
                     const targetPosition = targetElement.offsetTop - offset;
 
                     window.scrollTo({
@@ -34,55 +33,33 @@ document.addEventListener('DOMContentLoaded', function () {
                         behavior: 'smooth'
                     });
 
-                    // Close mobile menu if open
-                    mobileMenu.classList.remove('active');
+                    // Fermer menu mobile si ouvert
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (mobileMenu) mobileMenu.classList.remove('active');
                 }
             }
         });
     });
-
-    // === BURGER MENU / MOBILE NAV ===
-    const burgerMenu = document.getElementById('burger-menu');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    if (burgerMenu) {
-        burgerMenu.addEventListener('click', function () {
-            mobileMenu.classList.toggle('active');
-
-            // Animate burger icon
-            const spans = burgerMenu.querySelectorAll('span');
-            if (mobileMenu.classList.contains('active')) {
-                spans[0].style.transform = 'rotate(45deg) translateY(10px)';
-                spans[1].style.opacity = '0';
-                spans[2].style.transform = 'rotate(-45deg) translateY(-10px)';
-            } else {
-                spans[0].style.transform = 'none';
-                spans[1].style.opacity = '1';
-                spans[2].style.transform = 'none';
-            }
-        });
-    }
 
     // === FAQ ACCORDION ===
-    const faqItems = document.querySelectorAll('.faq-item');
+    document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+            const faqItem = button.parentElement;
+            const wasActive = faqItem.classList.contains('active');
 
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-
-        question.addEventListener('click', function () {
-            // Close other items
-            faqItems.forEach(otherItem => {
-                if (otherItem !== item && otherItem.classList.contains('active')) {
-                    otherItem.classList.remove('active');
-                }
+            // Fermer tous les items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
             });
 
-            // Toggle current item
-            item.classList.toggle('active');
+            // Ouvrir celui cliqué (si pas déjà ouvert)
+            if (!wasActive) {
+                faqItem.classList.add('active');
+            }
         });
     });
 
-    // === OPTIONAL: STICKY CTA (appears after scrolling) ===
+    // === OPTIONAL: STICKY CTA ===
     const stickyCTA = document.createElement('div');
     stickyCTA.className = 'sticky-cta-bottom';
     stickyCTA.innerHTML = `
@@ -115,4 +92,41 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+});
+
+// === MENU MOBILE TOGGLE ===
+function toggleMobileMenu() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuToggle = document.querySelector('.menu-toggle');
+
+    mobileMenu.classList.toggle('active');
+    menuToggle.classList.toggle('active');
+
+    // Toggle animation burger
+    const spans = menuToggle.querySelectorAll('span');
+    if (mobileMenu.classList.contains('active')) {
+        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+        spans[1].style.opacity = '0';
+        spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+    } else {
+        spans[0].style.transform = '';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = '';
+    }
+}
+
+// Fermer menu mobile au clic sur lien
+document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuToggle = document.querySelector('.menu-toggle');
+
+        mobileMenu.classList.remove('active');
+        menuToggle.classList.remove('active');
+
+        const spans = menuToggle.querySelectorAll('span');
+        spans[0].style.transform = '';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = '';
+    });
 });
